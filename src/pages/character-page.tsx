@@ -42,7 +42,9 @@ const CharacterPage = () => {
           />
         </div>
         <div className='mt-3 md:mt-0'>
-          <h1 className='text-4xl font-bold text-gray-300'>{data.name}</h1>
+          <h1 className='lg:text-4xl md:text-2xl text-xl font-bold text-gray-300'>
+            {data.name}
+          </h1>
           <p className='max-w-[700px] mt-5 md:mt-10 text-gray-400 text-base md:text-xl text-justify'>
             {data.description ? data.description : 'No description for this character.'}
           </p>
