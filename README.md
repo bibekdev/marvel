@@ -21,3 +21,14 @@ This is a web app created in React which has the list of all marvel comics chara
 - React Table for data table
 - Tailwind CSS for styling
 - Chart.js for graphical representation
+
+## Installation
+
+Clone this project to view or change it
+
+```bash
+  git clone https://github.com/bibekdev/marvel.git
+  cd my-project
+  npm install
+  npm run dev
+```
