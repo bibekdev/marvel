@@ -1,30 +1,23 @@
-# React + TypeScript + Vite
+# Marvel Api Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a web app created in React which has the list of all marvel comics characters represented in data-table with proper pagination and search functionality.
 
-Currently, two official plugins are available:
+## Authors
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [@bibekdev](https://www.github.com/bibekdev)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Paginated data table
+- Bar Chart to list number of comics appearance of a character
+- Responsive design
+- Single page for character
+- Realtime search functionality
 
-- Configure the top-level `parserOptions` property like this:
+## Tech stack
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- React with vite
+- React Query for data fetching and caching
+- React Table for data table
+- Tailwind CSS for styling
+- Chart.js for graphical representation
