@@ -26,11 +26,13 @@ const ChartPage = () => {
     [key: number]: boolean
   }>({})
 
+  // * Fetching all the characters from the api
   const { data, isLoading } = useQuery({
     queryKey: ['characters', 0, ''],
     queryFn: async () => await fetchAllCharacters({ pageSize: 20, pageIndex: 0 }, ''),
   })
 
+  // Adding and Removing the character id from state to toggle their data in the chart
   const handleCheckboxChange = (characterId: number) => {
     setSelectedCharacters(prevSelectedCharacters => ({
       ...prevSelectedCharacters,
@@ -38,12 +40,16 @@ const ChartPage = () => {
     }))
   }
 
+  // Use of filter function
   const selectedCharactersData = data?.results?.filter(
     (character: Character) => selectedCharacters[character.id]
   )
+
+  // use of map function to create new array with character names only
   const characterNames = selectedCharactersData?.map(
     (character: Character) => character.name
   )
+  // use of map function to create new array with character comics count only
   const comicsCount = selectedCharactersData?.map(
     (character: Character) => character.comics.available
   )
@@ -87,7 +93,7 @@ const ChartPage = () => {
       },
       title: {
         display: true,
-        text: 'Chart.js Bar Chart',
+        text: 'Comic Appearance Bar Chart',
       },
     },
   }

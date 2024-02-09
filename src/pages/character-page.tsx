@@ -11,16 +11,19 @@ import { CardCollection } from '../components/cards/card-collection'
 const CharacterPage = () => {
   const { characterId } = useParams()
 
+  // Fetching data of character
   const { data, isLoading } = useQuery({
     queryKey: ['character', characterId],
     queryFn: async () => await fetchSingleCharacter(characterId!),
   })
 
+  // fetching comic list of that character
   const { data: comicData } = useQuery({
     queryKey: ['character', characterId, 'comic'],
     queryFn: async () => await fetchSingleCharacterComics(characterId!),
   })
 
+  // fetching series list of that character
   const { data: seriesData } = useQuery({
     queryKey: ['character', characterId, 'series'],
     queryFn: async () => await fetchSingleCharacterSeries(characterId!),

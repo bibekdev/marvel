@@ -30,8 +30,11 @@ export const DataTable = () => {
     pageSize: 20,
     pageIndex: 0,
   })
+
+  // custom hook for debouncing feature added to our web app for search functionality
   const debouncedValue = useDebounce(value)
 
+  // use of useMemo to assign columns which saves us from rerunning
   const columns: ColumnDef<Character>[] = useMemo(
     () => [
       {
@@ -70,6 +73,7 @@ export const DataTable = () => {
     []
   )
 
+  // use of useMemo to assign pagination state which saves us from rerunning
   const pagination = useMemo(
     () => ({
       pageIndex,
@@ -78,6 +82,7 @@ export const DataTable = () => {
     [pageIndex, pageSize]
   )
 
+  // fetching data
   const { data, isLoading } = useQuery({
     queryKey: ['characters', pageIndex, debouncedValue],
     queryFn: () => fetchAllCharacters({ pageIndex, pageSize }, debouncedValue),
@@ -85,12 +90,14 @@ export const DataTable = () => {
     enabled: true,
   })
 
+  // triggered when the debounced value is changed
   useEffect(() => {
     query.invalidateQueries({
       queryKey: ['characters', pageIndex, debouncedValue],
     })
   }, [debouncedValue])
 
+  // react table hook
   const {
     getHeaderGroups,
     getRowModel,

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 
+// custom react hook for debounce feature
 export function useDebounce(value: string) {
   const [debouncedValue, setDebouncedValue] = useState(value)
 
